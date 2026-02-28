@@ -1,0 +1,1 @@
+companymanager.o: companymanager.c

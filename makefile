@@ -1,8 +1,8 @@
-CC=avr-gcc
-LD=avr-ld
-OBJCOPY=avr-objcopy
-OBJDUMP=avr-objdump
-AVRSIZE=avr-size
+CC=C:\avr\bin\avr-gcc
+LD=C:\avr\bin\avr-ld
+OBJCOPY="C:\avr\bin\avr-objcopy"
+OBJDUMP="C:\avr\bin\avr-objdump"
+AVRSIZE="C:\avr\bin\avr-size"
 
 MCU=atmega328p
 
