@@ -39,13 +39,14 @@ int main(void)
     	lcd_write(text[i]);
     _delay_ms(100);
 	}
-	int num = 0;
+	int companynumber = 0;
 	
 	while(1) {
 		current_millis = millis_get();
 		if(current_millis_clear - millis_since_last_clear >= 20000){
-			
+			companynumber = rand_Func_randomCompanySelection();
 		}
+		
 
 
 
