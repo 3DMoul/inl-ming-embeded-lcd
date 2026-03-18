@@ -1,6 +1,7 @@
 #include "companymanager.h"
 
-int myRand(int arr[], int freq[], const int n)
+
+int rand_Func_myRand(int arr[], int freq[], const int n)
 {
     // Create and fill prefix array
     int prefix[5], i;
@@ -16,25 +17,12 @@ int myRand(int arr[], int freq[], const int n)
     int indexc = findCeil(prefix, r, 0, n - 1);
     return arr[indexc];
 }
-void randomcompanyselection(){
+void rand_Func_randomCompanySelection(){
 int arr[]  = {1, 2, 3, 4, 5};
     int freq[] = {40, 5, 30, 10, 5};
     const int n = sizeof(arr) / sizeof(arr[0]);     
 
     srand(time(NULL));
     int num = 0;
-    num = myRand(arr, freq, n);
-}
-
-void company_2::companyadvertising()
-{
-
-}
-void companyadvertising();
-void companyadvertising();
-void companyadvertising();
-void companyadvertising();
-
-void company_1::companyadvertising()
-{
+    num = rand_Func_myRandmyRand(arr, freq, n);
 }
