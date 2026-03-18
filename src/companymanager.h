@@ -1,22 +1,27 @@
-#include <iostream>
+#include <stdio.h>
 
+namespace rand_Func{
+int myRand(int arr[], int freq[], const int n);
+void randomcompanyselection();
+}
 
 struct company_1{
-    std::string name = "Hederlige Harrys Bilar";
+    char name[23] = "Hederlige Harrys Bilar";
+    void companyadvertising();
 };
 struct company_2{
-    std::string name = "Farmor Ankas Pajer AB";
-    
+    char name[22] = "Farmor Ankas Pajer AB";
+    void companyadvertising();
 };
 struct company_3{
-    std::string name = "Svarte Petters Svartbyggen";
-    
+    char name[27] = "Svarte Petters Svartbyggen";
+    void companyadvertising();
 };
 struct company_4{
-    std::string name = "Långbens detektivbyrå";
-    
+    char name[24] = "Långbens detektivbyrå";
+    void companyadvertising();
 };
 struct IOT_Comurcial{
-    std::string name = "IOT:s Reklambyrå";
-    
+    char name[18] = "IOT:s Reklambyrå";
+    void companyadvertising();
 };

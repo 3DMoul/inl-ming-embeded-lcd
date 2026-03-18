@@ -57,6 +57,11 @@
 // C (analog input pins)
 // D (digital pins 0 to 7)
 // https://wokwi.com/projects/363784064760337409
+
+
+
+
+
 int main(void)
 {
 	lcd_init();
