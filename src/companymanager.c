@@ -1,6 +1,22 @@
 #include "companymanager.h"
 
+void company_1_advertising(){
 
+}
+void company_2_advertising(){
+
+}
+void company_3_advertising(){
+
+}
+void company_4_advertising(){
+
+}
+void IOT_Commercial_advertising(){
+
+}
+
+// random selection function
 int rand_Func_myRand(int arr[], int freq[], const int n)
 {
     // Create and fill prefix array
