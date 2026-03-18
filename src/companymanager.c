@@ -14,19 +14,36 @@ void company_1_advertising(){
     for (int i = 0; i < 16; i++){
 		lcd_scroll_right();
 		_delay_ms(75);
+        
 	}
+    //Hederlige Harrys Bilar:
+    // Betalat 5000. Vill slumpmässigt visa en av tre meddelanden
+    // "Köp bil hos Harry"  (scroll)
+    // "En god bilaffär (för Harry!)" (text)
+    // "Hederlige Harrys Bilar" (blinkande text)
 }
 void company_2_advertising(){
-
+    // Farmor Ankas Pajer AB:
+    // Betalat 3000. Vill slumpmässigt visa en av två
+    // "Köp paj hos Farmor Anka"  (scroll)
+    // "Skynda innan Mårten ätit alla pajer" (text)
 }
 void company_3_advertising(){
-
+    // Svarte Petters Svartbyggen:
+    // Betalat 1500. Vill visa
+    // "Låt Petter bygga åt dig"  (scroll) - på jämna minuter
+    // "Bygga svart? Ring Petter" (text) - på ojämna minuter
 }
 void company_4_advertising(){
-
+    // Långbens detektivbyrå:
+    // Betalat 4000. Vill visa
+    // "Mysterier? Ring Långben" (text) 
+    // "Långben fixar biffen" (text)
 }
 void IOT_Commercial_advertising(){
-
+    // Ibland måste vi visa reklam för oss själva:
+    // Vi ger oss själva tid motsvarande 1000 kr. 
+    // "Synas här? IOT:s Reklambyrå" (text)
 }
 
 // random selection function
