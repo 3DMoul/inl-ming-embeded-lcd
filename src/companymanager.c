@@ -63,7 +63,7 @@ int rand_Func_myRand(int arr[], int freq[], const int n)
     int indexc = findCeil(prefix, r, 0, n - 1);
     return arr[indexc];
 }
-void rand_Func_randomCompanySelection(){
+int rand_Func_randomCompanySelection(void){
 int arr[]  = {1, 2, 3, 4, 5};
     int freq[] = {40, 5, 30, 10, 5};
     const int n = sizeof(arr) / sizeof(arr[0]);     
@@ -71,4 +71,5 @@ int arr[]  = {1, 2, 3, 4, 5};
     srand(time(NULL));
     int num = 0;
     num = rand_Func_myRandmyRand(arr, freq, n);
+    return num;
 }

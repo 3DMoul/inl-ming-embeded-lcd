@@ -20,6 +20,6 @@ void IOT_Commercial_advertising(struct IOT_Commercial c);
 
 // functions for selecting random company comercial
 int rand_Func_myRand(int arr[], int freq[], const int n);
-void rand_Func_randomcompanyselection(void);
+int rand_Func_randomcompanyselection(void);
 
 #endif
