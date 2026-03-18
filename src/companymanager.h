@@ -2,6 +2,7 @@
 #define COMPANYMANAGER_H
 #include <stdio.h>
 #include <string.h>
+#include "lcd.h"
 
 // companies
 struct company_1 { char name[23]; int payment;}; // Hederlige Harrys Bilar
