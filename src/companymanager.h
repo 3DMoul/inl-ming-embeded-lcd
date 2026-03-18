@@ -4,17 +4,17 @@
 #include <string.h>
 
 // companies
-struct company_1 { char name[23]; }; // Hederlige Harrys Bilar
-struct company_2 { char name[22]; }; // Farmor Ankas Pajer AB
-struct company_3 { char name[27]; }; // Svarte Petters Svartbyggen
-struct company_4 { char name[24]; }; // Långbens detektivbyrå
-struct IOT_Commercial { char name[18]; }; // IOT
+struct company_1 { char name[23]; int payment;}; // Hederlige Harrys Bilar
+struct company_2 { char name[22]; int payment;}; // Farmor Ankas Pajer AB
+struct company_3 { char name[27]; int payment;}; // Svarte Petters Svartbyggen
+struct company_4 { char name[24]; int payment;}; // Långbens detektivbyrå
+struct IOT_Commercial { char name[18]; int payment;}; // IOT
 
 // companie ad functions
-void company_1_advertising(struct company_1 c);
-void company_2_advertising(struct company_2 c);
-void company_3_advertising(struct company_3 c);
-void company_4_advertising(struct company_4 c);
+void company_1_advertising();
+void company_2_advertising();
+void company_3_advertising();
+void company_4_advertising();
 void IOT_Commercial_advertising(struct IOT_Commercial c);
 
 // functions for selecting random company comercial

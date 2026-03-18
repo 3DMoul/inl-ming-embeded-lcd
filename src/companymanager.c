@@ -1,5 +1,13 @@
 #include "companymanager.h"
 
+
+struct company_1 c1 = { "Hederlige Harrys Bilar" , 5000};
+struct company_2 c2 = { "Farmor Ankas Pajer AB" , 3000};
+struct company_3 c3 = { "Svarte Petters Svartbyggen" , 1500};
+struct company_4 c4 = { "Långbens detektivbyrå" , 4000};
+struct IOT_Commercial c5 = { "IOT:s Reklambyrå" , 1000};
+
+
 void company_1_advertising(){
 
 }
