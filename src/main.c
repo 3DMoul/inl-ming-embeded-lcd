@@ -21,7 +21,6 @@ int main(void)
 	lcd_init();
     millis_init();
     sei();
-	int freq[];
 	struct company_1 Hederlige_Harrys_Bilar;
 	struct company_2 Farmor_Ankas_Pajer_AB;
 	struct company_3 Svarte_Petters_Svartbyggen;
@@ -35,7 +34,15 @@ int main(void)
 		Farmor_Ankas_Pajer_AB.payment, 
 		Svarte_Petters_Svartbyggen.payment,
 		Långbens_detektivbyrå.payment,IOT_.payment);
-	
+		
+	int freq[5];
+	freq[0] = 100*(Hederlige_Harrys_Bilar.payment/paymentSum);
+	freq[1] = 100*(Farmor_Ankas_Pajer_AB.payment/paymentSum);
+	freq[2] = 100*(Svarte_Petters_Svartbyggen.payment/paymentSum);
+	freq[3] = 100*(Långbens_detektivbyrå.payment/paymentSum);
+	freq[4] = 100*(IOT_.payment/paymentSum);
+		
+
 
 	millis_t millis_since_last_change = 0;
     millis_t current_millis = 0;
@@ -59,7 +66,7 @@ int main(void)
 	while(1) {
 		current_millis = millis_get();
 		if(current_millis_clear - millis_since_last_clear >= 20000){
-			companynumber = rand_Func_randomCompanySelection();
+			companynumber = rand_Func_randomCompanySelection(freq);
 		}
 		
 
