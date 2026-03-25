@@ -7,7 +7,13 @@ struct company_3 c3 = { "Svarte Petters Svartbyggen" , 1500};
 struct company_4 c4 = { "Långbens detektivbyrå" , 4000};
 struct IOT_Commercial c5 = { "IOT:s Reklambyrå" , 1000};
 int paymentSumCalc(int c1, int c2, int c3, int c4, int c5){
-    
+    int tempSum = 0;
+    tempSum += Hederlige_Harrys_Bilar.payment;
+	tempSum += Farmor_Ankas_Pajer_AB.payment;
+	tempSum += Svarte_Petters_Svartbyggen.payment;
+	tempSum += Långbens_detektivbyrå.payment;
+	tempSum += IOT_.payment;
+    return tempSum;
 }
 
 // companie ad functions

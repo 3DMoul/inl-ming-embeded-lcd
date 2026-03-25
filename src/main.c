@@ -30,21 +30,12 @@ int main(void)
 	
 	
 	double paymentSum = 0;
-	paymentSum = paymentSumCalc(Hederlige_Harrys_Bilar.payment,
-								Farmor_Ankas_Pajer_AB.payment, 
-								Svarte_Petters_Svartbyggen.payment,
-								Långbens_detektivbyrå.payment,IOT_.payment);
-	paymentSum += Hederlige_Harrys_Bilar.payment;
-	paymentSum += Farmor_Ankas_Pajer_AB.payment;
-	paymentSum += Svarte_Petters_Svartbyggen.payment;
-	paymentSum += Långbens_detektivbyrå.payment;
-	paymentSum += IOT_.payment;
-
-
-
-
-
-
+	paymentSum = paymentSumCalc(
+		Hederlige_Harrys_Bilar.payment,
+		Farmor_Ankas_Pajer_AB.payment, 
+		Svarte_Petters_Svartbyggen.payment,
+		Långbens_detektivbyrå.payment,IOT_.payment);
+	
 
 	millis_t millis_since_last_change = 0;
     millis_t current_millis = 0;
