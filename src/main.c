@@ -1,7 +1,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 #include <stdio.h>
 #include "lcd.h"
+#include "millis.h"
 #include "companymanager.h"
 
 #define BIT_SET(a, b) ((a) |= (1ULL << (b)))
@@ -17,10 +19,32 @@
 int main(void)
 {
 	lcd_init();
-    init_serial();
-    init_servo();
     millis_init();
     sei();
+	int freq[];
+	struct company_1 Hederlige_Harrys_Bilar;
+	struct company_2 Farmor_Ankas_Pajer_AB;
+	struct company_3 Svarte_Petters_Svartbyggen;
+	struct company_4 Långbens_detektivbyrå;
+	struct IOT_Commercial IOT_;
+	
+	
+	double paymentSum = 0;
+	paymentSum = paymentSumCalc(Hederlige_Harrys_Bilar.payment,
+								Farmor_Ankas_Pajer_AB.payment, 
+								Svarte_Petters_Svartbyggen.payment,
+								Långbens_detektivbyrå.payment,IOT_.payment);
+	paymentSum += Hederlige_Harrys_Bilar.payment;
+	paymentSum += Farmor_Ankas_Pajer_AB.payment;
+	paymentSum += Svarte_Petters_Svartbyggen.payment;
+	paymentSum += Långbens_detektivbyrå.payment;
+	paymentSum += IOT_.payment;
+
+
+
+
+
+
 
 	millis_t millis_since_last_change = 0;
     millis_t current_millis = 0;

@@ -6,6 +6,9 @@ struct company_2 c2 = { "Farmor Ankas Pajer AB" , 3000};
 struct company_3 c3 = { "Svarte Petters Svartbyggen" , 1500};
 struct company_4 c4 = { "Långbens detektivbyrå" , 4000};
 struct IOT_Commercial c5 = { "IOT:s Reklambyrå" , 1000};
+int paymentSumCalc(int c1, int c2, int c3, int c4, int c5){
+    
+}
 
 // companie ad functions
 void company_1_advertising(){
@@ -46,6 +49,17 @@ void IOT_Commercial_advertising(){
     // "Synas här? IOT:s Reklambyrå" (text)
 }
 
+
+int rand_Func_findCeil(int arr[], int r, int l, int h)
+{
+    int mid;
+    while (l < h)
+    {
+         mid = l + ((h - l) >> 1);  // Same as mid = (l+h)/2
+        (r > arr[mid]) ? (l = mid + 1) : (h = mid);
+    }
+    return (arr[l] >= r) ? l : -1;
+}
 // random selection function
 int rand_Func_myRand(int arr[], int freq[], const int n)
 {
@@ -60,12 +74,11 @@ int rand_Func_myRand(int arr[], int freq[], const int n)
     int r = (rand() % prefix[n - 1]) + 1;
 
     // Find index of ceiling of r in prefix array
-    int indexc = findCeil(prefix, r, 0, n - 1);
+    int indexc = rand_Func_findCeil(prefix, r, 0, n - 1);
     return arr[indexc];
 }
-int rand_Func_randomCompanySelection(void){
-int arr[]  = {1, 2, 3, 4, 5};
-    int freq[] = {40, 5, 30, 10, 5};
+int rand_Func_randomCompanySelection(int freq[]){
+    int arr[]  = {1, 2, 3, 4, 5};
     const int n = sizeof(arr) / sizeof(arr[0]);     
 
     srand(time(NULL));
