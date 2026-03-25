@@ -1,7 +1,10 @@
 #ifndef COMPANYMANAGER_H
 #define COMPANYMANAGER_H
 #include <stdio.h>
+#include <stdlib.h>
+#include <util/delay.h>
 #include <string.h>
+#include <time.h>
 #include "lcd.h"
 
 // companies
@@ -11,14 +14,15 @@ struct company_3 { char name[27]; int payment;}; // Svarte Petters Svartbyggen
 struct company_4 { char name[24]; int payment;}; // Långbens detektivbyrå
 struct IOT_Commercial { char name[18]; int payment;}; // IOT
 
-int paymentSumCalc(int c1, int c2, int c3, int c4, int c5);
+int paymentSumCalc();
+void freqcalc(int FQ[], int P);
 
 // companie ad functions
-void company_1_advertising();
-void company_2_advertising();
-void company_3_advertising();
-void company_4_advertising();
-void IOT_Commercial_advertising(struct IOT_Commercial c);
+void company_1_advertising(void);
+void company_2_advertising(void);
+void company_3_advertising(void);
+void company_4_advertising(void);
+void IOT_Commercial_advertising(void);
 
 // functions for selecting random company comercial
 int rand_Func_findCeil(int arr[], int r, int l, int h);

@@ -1,4 +1,4 @@
-lcd.o: lcd.c lcd.h C:/avr/avr/include/avr/io.h \
+src/lcd.o: src/lcd.c src/lcd.h C:/avr/avr/include/avr/io.h \
  C:/avr/avr/include/avr/sfr_defs.h C:/avr/avr/include/inttypes.h \
  C:/avr/lib/gcc/avr/15.2.0/include/stdint.h C:/avr/avr/include/stdint.h \
  C:/avr/avr/include/avr/iom328p.h C:/avr/avr/include/avr/portpins.h \
