@@ -36,28 +36,8 @@ int main(void)
 	int int4 = 0;
 	int int5 = 0;
 	int freq[5];
-	freq[0] = 31;
-    freq[1] = 25;
-    freq[2] = 19;
-    freq[3] = 10;
-    freq[4] = 6;
-	//freqcalc(freq, paymentSum);
+	freqcalc(freq, paymentSum);
 	
-	
-	char text[] = "Skriv in k'\xF6\'den:";
-	for(int i = 0; text[i] != '\0'; i++){
-		if (text[i] == '\'')
-		continue;
-		else if (text[i] == '\xE5')
-		lcd_write('\xE5');
-		else if (text[i] == '\xE4')
-		lcd_write('\xE4');
-		else if (text[i] == '\xF6')
-		lcd_write('\xF6');
-		else
-    	lcd_write(text[i]);
-		_delay_ms(100);
-	}
 	int companynumber = 0;
 	
 	while(1) {

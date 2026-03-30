@@ -1,11 +1,11 @@
 #include "companymanager.h"
 
 // companies
-struct company_1 Hederlige_Harrys_Bilar = { "Hederlige Harrys Bilar" , 5000};
-struct company_2 Farmor_Ankas_Pajer_AB = { "Farmor Ankas Pajer AB" , 3000};
-struct company_3 Svarte_Petters_Svartbyggen = { "Svarte Petters Svartbyggen" , 1500};
-struct company_4 Långbens_detektivbyrå = { "Långbens detektivbyrå" , 4000};
-struct IOT_Commercial IOT_ = { "IOT:s Reklambyrå" , 1000};
+struct company_1 Hederlige_Harrys_Bilar = { "Hederlige Harrys Bilar" , 5000.0};
+struct company_2 Farmor_Ankas_Pajer_AB = { "Farmor Ankas Pajer AB" , 3000.0};
+struct company_3 Svarte_Petters_Svartbyggen = { "Svarte Petters Svartbyggen" , 1500.0};
+struct company_4 Långbens_detektivbyrå = { "Långbens detektivbyrå" , 4000.0};
+struct IOT_Commercial IOT_ = { "IOT:s Reklambyrå" , 1000.0};
 
 int paymentSumCalc(){
     int tempSum = 0;
@@ -23,11 +23,11 @@ void freqcalc(int FQ[], int P){
             FQ[i] = 1;  // Default equal probability
         return;
     }
-	FQ[0] = round((100 * Hederlige_Harrys_Bilar.payment) / P);
-    FQ[1] = round((100 * Farmor_Ankas_Pajer_AB.payment) / P);
-    FQ[2] = round((100 * Svarte_Petters_Svartbyggen.payment) / P);
-    FQ[3] = round((100 * Långbens_detektivbyrå.payment) / P);
-    FQ[4] = round((100 * IOT_.payment) / P);
+	FQ[0] = round(100 * (Hederlige_Harrys_Bilar.payment / P));
+    FQ[1] = round(100 * (Farmor_Ankas_Pajer_AB.payment / P));
+    FQ[2] = round(100 * (Svarte_Petters_Svartbyggen.payment / P));
+    FQ[3] = round(100 * (Långbens_detektivbyrå.payment / P));
+    FQ[4] = round(100 * (IOT_.payment / P));
 }
 
 // companie ad functions
@@ -66,7 +66,7 @@ void company_1_advertising(void){
             lcd_set_cursor(0,0);
             lcd_puts("En god bilaffär ");
             lcd_set_cursor(0,1);
-            lcd_puts("(för Harry!)")
+            lcd_puts("(för Harry!)");
             while ((current_millis - millis_since_last_change_switch < 5000))
             {
                 current_millis = millis_get();
@@ -107,9 +107,9 @@ void company_2_advertising(void){
         {
         case 0:
             lcd_set_cursor(0,0);
-            lcd_puts("Köp bil");
+            lcd_puts("Köp paj ");
             lcd_set_cursor(0,1);
-            lcd_puts("hos Harry");
+            lcd_puts("hos Farmor Anka");
             while ((current_millis - millis_since_last_change_switch < 5000))
             {
                 current_millis = millis_get();
@@ -150,12 +150,8 @@ int exactminut(void){
 }
 void company_3_advertising(void){
     millis_t millis_since_last_change = 0;
-    millis_t millis_since_last_change_switch = 0;
     millis_t current_millis = 0;
-    struct tm datetime;
-    time_t timestamp;
     millis_since_last_change = millis_get();
-    millis_since_last_change_switch = millis_get();
     current_millis = millis_get();
     while (current_millis - millis_since_last_change < 20000)
     {

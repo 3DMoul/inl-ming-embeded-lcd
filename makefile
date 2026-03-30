@@ -18,6 +18,8 @@ OUT=${BIN}.hex
 
 SOURCES = src/main.c src/lcd.c src/millis.c src/companymanager.c src/uart.c
 
+LDFLAGS += -Wl,-u,vfprintf -lprintf_flt -lm
+
 OBJS = $(SOURCES:.c=.o)
 
 all: $(OUT)
