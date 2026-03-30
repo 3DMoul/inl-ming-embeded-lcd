@@ -230,7 +230,7 @@ int rand_Func_findCeil(int arr[], int r, int l, int h)
     return (arr[l] >= r) ? l : -1;
 }
 // random selection function
-int rand_Func_myRand(int arr[], int freq[], const int n)
+int rand_Func_myRand(int arr[], int freq[], const int n)  // Removed arr[] parameter, now returns index directly
 {
     // Create and fill prefix array
     int prefix[5], i;
@@ -247,15 +247,12 @@ int rand_Func_myRand(int arr[], int freq[], const int n)
     return arr[indexc];
 }
 int rand_Func_randomcompanyselection(int *freq) {
-    int sum = 0;
-    for (int i = 0; i < 5; i++) sum += freq[i];
-    if (sum <= 0) return -1;  // cannot select, sum invalid
+    int arr[]  = {1, 2, 3, 4, 5};
+    const int n = sizeof(arr) / sizeof(arr[0]);     
 
-    int r = rand() % sum;  // always 0 <= r < sum
-    int cum = 0;
-    for (int i = 0; i < 5; i++) {
-        cum += freq[i];
-        if (r < cum) return i;  // selected index
-    }
-    return -1; // fallback (should never happen)
+    // Use a different seed value for every run.
+    int num = rand_Func_myRand(arr, freq, n);
+    
+    return num;
+
 }
