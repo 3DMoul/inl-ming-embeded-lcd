@@ -16,7 +16,7 @@ BIN=exefile
 # OUT=${BIN}.elf ${BIN}.hex ${BIN}.lss
 OUT=${BIN}.hex
 
-SOURCES = src/main.c src/lcd.c src/millis.c src/companymanager.c
+SOURCES = src/main.c src/lcd.c src/millis.c src/companymanager.c src/uart.c
 
 OBJS = $(SOURCES:.c=.o)
 

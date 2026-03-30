@@ -1,24 +1,17 @@
+#ifndef LCD_DRIVER_
+#define LCD_DRIVER_
+
 #include <avr/io.h>
 
 #define LCD_PORT PORTD
-#define LCD_DDR DDRD 
+#define LCD_DDR DDRD
 
-#if ( !defined LCD_DDR || !defined LCD_PORT )
-	#warning "Please define LCD_DDR and LCD_PORT"
-	#define LCD_DDR  DDRB
-	#define LCD_PORT PORTB
-#endif
-
-#ifndef LCD_RS
-	#warning "LCD Using default pin"
-	#define LCD_RS 0
-	#define LCD_RW 2 // TODO - not use ALWAYAS GROUND
-	#define LCD_EN 1
-	#define LCD_D0 4
-	#define LCD_D1 5
-	#define LCD_D2 6
-	#define LCD_D3 7
-#endif
+#define LCD_RS PD2
+#define LCD_EN PD3
+#define LCD_D4 PD4
+#define LCD_D5 PD5
+#define LCD_D6 PD6
+#define LCD_D7 PD7
 
 #define LCD_COL_COUNT 16
 #define LCD_ROW_COUNT 2
@@ -89,3 +82,5 @@ void lcd_set_cursor(uint8_t col, uint8_t row);
 
 void lcd_puts(char *string);
 void lcd_printf(char *format, ...);
+
+#endif

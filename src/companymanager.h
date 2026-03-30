@@ -3,9 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
+#include <math.h>
 #include <string.h>
 #include <time.h>
 #include "lcd.h"
+#include "millis.h"
+
 
 // companies
 struct company_1 { char name[23]; int payment;}; // Hederlige Harrys Bilar
@@ -20,6 +23,7 @@ void freqcalc(int FQ[], int P);
 // companie ad functions
 void company_1_advertising(void);
 void company_2_advertising(void);
+int exactminut(void);
 void company_3_advertising(void);
 void company_4_advertising(void);
 void IOT_Commercial_advertising(void);
