@@ -71,7 +71,6 @@ void company_1_advertising(void){
             lcd_puts("Köp bil");
             lcd_set_cursor(0,1);
             lcd_puts("hos Harry");
-                current_millis = millis_get();
                 for (int i = 0; i < 16; i++){
                     lcd_scroll_right();
                     _delay_ms(100);
@@ -115,14 +114,10 @@ void company_2_advertising(void){
             lcd_puts("Köp paj ");
             lcd_set_cursor(0,1);
             lcd_puts("hos Farmor Anka");
-            while ((current_millis - millis_since_last_change_switch < 5000))
-            {
-                current_millis = millis_get();
                 for (int i = 0; i < 16; i++){
                     lcd_scroll_right();
                     _delay_ms(100);
                 }
-            }
             break;
         case 1:
             lcd_set_cursor(0,0);
@@ -144,11 +139,12 @@ void company_3_advertising(void){
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
     current_millis = millis_get();
-
+    int version = 0;
+    version = rand() % 2;
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
-        if ((exactminut()%2) == 0){
+        if ((minutes % 2) == 0){
             lcd_clear();
             lcd_set_cursor(0,0);
             lcd_puts("Låt Petter");
@@ -163,7 +159,7 @@ void company_3_advertising(void){
             lcd_clear();
             lcd_set_cursor(0,0);
             lcd_puts("Bygga svart?");
-            lcd_set_cursor(0,1);
+            lcd_set_cursor(0,0);
             lcd_puts("Ring Petter");
         }
         
@@ -178,13 +174,22 @@ void company_4_advertising(void){
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
     current_millis = millis_get();
-    lcd_set_cursor(0,0);
-    lcd_puts("Mysterier? Ring Långben");
-    lcd_set_cursor(0,1);
-    lcd_puts("Långben fixar biffen");
     while (current_millis - millis_since_last_change < 20000)
     {
+        switch (version)
+        {
+        case 0:
+            lcd_clear();
+            lcd_set_cursor(0,0);
+            lcd_puts("Mysterier? Ring Långben");
+            break;
+        case 1:
+            lcd_clear();
+            lcd_puts("Långben fixar biffen");
+            break;
+        }
         current_millis = millis_get();
+        lcd_set_cursor(0,1);
     }
     // Långbens detektivbyrå:
     // Betalat 4000. Vill visa
