@@ -7,6 +7,26 @@ struct company_3 Svarte_Petters_Svartbyggen = { "Svarte Petters Svartbyggen" , 1
 struct company_4 Långbens_detektivbyrå = { "Långbens detektivbyrå" , 4000.0};
 struct IOT_Commercial IOT_ = { "IOT:s Reklambyrå" , 1000.0};
 
+// interrupt time 
+volatile uint8_t seconds = 0;
+volatile uint8_t minutes = 0;
+
+ISR(TIMER1_COMPA_vect) {
+    seconds++;
+
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+    }
+}
+
+void timer1_init() {
+    TCCR1B |= (1 << WGM12);               // CTC mode
+    OCR1A = 15624;                       // 1 sec @16MHz, prescaler 1024
+    TIMSK1 |= (1 << OCIE1A);             // enable interrupt
+    TCCR1B |= (1 << CS12) | (1 << CS10); // start timer
+}
+
 int paymentSumCalc(){
     int tempSum = 0;
     tempSum += Hederlige_Harrys_Bilar.payment;
@@ -33,17 +53,15 @@ void freqcalc(int FQ[], int P){
 // companie ad functions
 void company_1_advertising(void){
     millis_t millis_since_last_change = 0;
-    millis_t millis_since_last_change_switch = 0;
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
-    millis_since_last_change_switch = millis_get();
     current_millis = millis_get();
+    int version = 0;
+    version = rand() % 3;
 
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
-        int version = 0;
-        version = rand() % 3;
         
         lcd_clear();
         switch (version)
@@ -53,24 +71,17 @@ void company_1_advertising(void){
             lcd_puts("Köp bil");
             lcd_set_cursor(0,1);
             lcd_puts("hos Harry");
-            while ((current_millis - millis_since_last_change_switch < 5000))
-            {
                 current_millis = millis_get();
                 for (int i = 0; i < 16; i++){
                     lcd_scroll_right();
                     _delay_ms(100);
                 }
-            }
             break;
         case 1:
             lcd_set_cursor(0,0);
             lcd_puts("En god bilaffär ");
             lcd_set_cursor(0,1);
             lcd_puts("(för Harry!)");
-            while ((current_millis - millis_since_last_change_switch < 5000))
-            {
-                current_millis = millis_get();
-            }
             break;
         case 2:
             lcd_set_cursor(0,0);
@@ -78,29 +89,23 @@ void company_1_advertising(void){
             lcd_set_cursor(0,1);
             lcd_puts("Bilar" );
             lcd_enable_blinking();
-            while ((current_millis - millis_since_last_change_switch < 5000))
-            {
-                current_millis = millis_get();
-            }
-            lcd_disable_blinking();
             break;
         }
         millis_since_last_change_switch = current_millis; 
-        
     }
+    lcd_disable_blinking();
 }
 void company_2_advertising(void){
     millis_t millis_since_last_change = 0;
-    millis_t millis_since_last_change_switch = 0;
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
-    millis_since_last_change_switch = millis_get();
     current_millis = millis_get();
+    int version = 0;
+    version = rand() % 2;
+
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
-        int version = 0;
-        version = rand() % 2;
         
         lcd_clear();
         switch (version)
@@ -124,10 +129,6 @@ void company_2_advertising(void){
             lcd_puts("Skynda innan Mårten");
             lcd_set_cursor(0,1);
             lcd_puts("ätit alla pajer");
-            while ((current_millis - millis_since_last_change_switch < 5000))
-            {
-                current_millis = millis_get();
-            }
             break;
         }
         millis_since_last_change_switch = current_millis; 
@@ -138,21 +139,12 @@ void company_2_advertising(void){
     // "Köp paj hos Farmor Anka"  (scroll)
     // "Skynda innan Mårten ätit alla pajer" (text)
 }
-int exactminut(void){
-    time_t now;
-    struct tm *local;
-
-    time(&now);                 // get current time
-    local = localtime(&now);    // convert to local time
-
-    int minute = local->tm_min; // extract minute (0–59)
-    return minute;
-}
 void company_3_advertising(void){
     millis_t millis_since_last_change = 0;
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
     current_millis = millis_get();
+
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
@@ -256,3 +248,4 @@ int rand_Func_randomcompanyselection(int *freq) {
     return num;
 
 }
+

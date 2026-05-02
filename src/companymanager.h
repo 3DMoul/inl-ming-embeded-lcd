@@ -33,4 +33,8 @@ int rand_Func_findCeil(int arr[], int r, int l, int h);
 int rand_Func_myRand(int arr[], int freq[], const int n);
 int rand_Func_randomcompanyselection(int freq[]);
 
+
+// interrupt time
+void timer1_init();
+
 #endif

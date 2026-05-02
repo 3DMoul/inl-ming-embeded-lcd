@@ -17,24 +17,7 @@
 // D (digital pins 0 to 7)
 // https://wokwi.com/projects/363784064760337409
 
-volatile uint8_t seconds = 0;
-volatile uint8_t minutes = 0;
 
-ISR(TIMER1_COMPA_vect) {
-    seconds++;
-
-    if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-    }
-}
-
-void timer1_init() {
-    TCCR1B |= (1 << WGM12);               // CTC mode
-    OCR1A = 15624;                       // 1 sec @16MHz, prescaler 1024
-    TIMSK1 |= (1 << OCIE1A);             // enable interrupt
-    TCCR1B |= (1 << CS12) | (1 << CS10); // start timer
-}
 
 int main(void)
 {
