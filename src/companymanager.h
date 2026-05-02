@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 #include <math.h>
 #include <string.h>
-#include <time.h>
 #include "lcd.h"
 #include "millis.h"
 
@@ -35,6 +35,7 @@ int rand_Func_randomcompanyselection(int freq[]);
 
 
 // interrupt time
+
 void timer1_init();
 
 #endif

@@ -90,7 +90,6 @@ void company_1_advertising(void){
             lcd_enable_blinking();
             break;
         }
-        millis_since_last_change_switch = current_millis; 
     }
     lcd_disable_blinking();
 }
@@ -101,12 +100,12 @@ void company_2_advertising(void){
     current_millis = millis_get();
     int version = 0;
     version = rand() % 2;
+    lcd_clear();
 
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
         
-        lcd_clear();
         switch (version)
         {
         case 0:
@@ -114,7 +113,7 @@ void company_2_advertising(void){
             lcd_puts("Köp paj ");
             lcd_set_cursor(0,1);
             lcd_puts("hos Farmor Anka");
-                for (int i = 0; i < 16; i++){
+                for (int i = 0; i < 40; i++){
                     lcd_scroll_right();
                     _delay_ms(100);
                 }
@@ -126,7 +125,6 @@ void company_2_advertising(void){
             lcd_puts("ätit alla pajer");
             break;
         }
-        millis_since_last_change_switch = current_millis; 
         
     }
     // Farmor Ankas Pajer AB:
@@ -139,13 +137,12 @@ void company_3_advertising(void){
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
     current_millis = millis_get();
-    int version = 0;
-    version = rand() % 2;
+    lcd_clear();
+    
     while (current_millis - millis_since_last_change < 20000)
     {
         current_millis = millis_get();
         if ((minutes % 2) == 0){
-            lcd_clear();
             lcd_set_cursor(0,0);
             lcd_puts("Låt Petter");
             lcd_set_cursor(0,1);
@@ -156,10 +153,9 @@ void company_3_advertising(void){
                 }
         }
         else{
-            lcd_clear();
             lcd_set_cursor(0,0);
             lcd_puts("Bygga svart?");
-            lcd_set_cursor(0,0);
+            lcd_set_cursor(0,1);
             lcd_puts("Ring Petter");
         }
         
@@ -174,22 +170,28 @@ void company_4_advertising(void){
     millis_t current_millis = 0;
     millis_since_last_change = millis_get();
     current_millis = millis_get();
+    int version = 0;
+    version = rand() % 2;
+    lcd_clear();
+
     while (current_millis - millis_since_last_change < 20000)
     {
+        current_millis = millis_get();
         switch (version)
         {
         case 0:
-            lcd_clear();
             lcd_set_cursor(0,0);
-            lcd_puts("Mysterier? Ring Långben");
+            lcd_puts("Mysterier?");
+            lcd_set_cursor(0,1);
+            lcd_puts("Ring Långben");
             break;
         case 1:
-            lcd_clear();
+            lcd_set_cursor(0,0);
             lcd_puts("Långben fixar biffen");
+            lcd_set_cursor(0,1);
+            lcd_puts("biffen");
             break;
         }
-        current_millis = millis_get();
-        lcd_set_cursor(0,1);
     }
     // Långbens detektivbyrå:
     // Betalat 4000. Vill visa
@@ -244,7 +246,7 @@ int rand_Func_myRand(int arr[], int freq[], const int n)  // Removed arr[] param
     return arr[indexc];
 }
 int rand_Func_randomcompanyselection(int *freq) {
-    int arr[]  = {1, 2, 3, 4, 5};
+    int arr[]  = {0, 1, 2, 3, 4};
     const int n = sizeof(arr) / sizeof(arr[0]);     
 
     // Use a different seed value for every run.

@@ -2,6 +2,7 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <time.h>
 #include "lcd.h"
 #include "millis.h"
 #include "companymanager.h"
