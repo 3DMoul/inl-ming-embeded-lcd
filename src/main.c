@@ -17,10 +17,30 @@
 // D (digital pins 0 to 7)
 // https://wokwi.com/projects/363784064760337409
 
+volatile uint8_t seconds = 0;
+volatile uint8_t minutes = 0;
+
+ISR(TIMER1_COMPA_vect) {
+    seconds++;
+
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+    }
+}
+
+void timer1_init() {
+    TCCR1B |= (1 << WGM12);               // CTC mode
+    OCR1A = 15624;                       // 1 sec @16MHz, prescaler 1024
+    TIMSK1 |= (1 << OCIE1A);             // enable interrupt
+    TCCR1B |= (1 << CS12) | (1 << CS10); // start timer
+}
+
 int main(void)
 {
     millis_init();
 	init_serial();
+	timer1_init();
 	srand(time(NULL));
 	lcd_init();
     sei();
@@ -39,13 +59,18 @@ int main(void)
 	freqcalc(freq, paymentSum);
 	
 	int companynumber = 0;
+	int lastcompnumber = 0;
 	
 	while(1) {
 		companynumber = rand_Func_randomcompanyselection(freq);
+
 		printf("random numb%d\n",companynumber);
 		if(companynumber < 0) {
 			printf("Random selection failed with code %d\n", companynumber);
 			continue; // or handle appropriately
+		}
+		while(lastcompnumber == companynumber){
+			companynumber = rand_Func_randomcompanyselection(freq);
 		}
 		switch (companynumber)
 		{
