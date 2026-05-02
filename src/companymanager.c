@@ -71,7 +71,7 @@ void company_1_advertising(void){
             lcd_puts("Köp bil");
             lcd_set_cursor(0,1);
             lcd_puts("hos Harry");
-                for (int i = 0; i < 16; i++){
+                for (int i = 0; i < 40; i++){
                     lcd_scroll_right();
                     _delay_ms(100);
                 }
